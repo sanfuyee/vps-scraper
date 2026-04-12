@@ -1,0 +1,26 @@
+# VPS 低价监控配置
+
+filter:
+  max_yearly_price_cny: 200     # 年付最高价格 (CNY)
+  max_monthly_price_cny: 20     # 月付最高价格 (CNY)
+  require_overseas: true         # 只关注海外机器
+  require_public_ip: true        # 需要公网 IPv4
+
+# 美元兑人民币汇率（用于外币价格折算）
+usd_to_cny: 7.2
+
+# 启用的爬虫列表（注释掉可禁用）
+scrapers:
+  # --- 第一梯队：国内大厂活动价 ---
+  - tencent_cloud
+  - aliyun
+  - huawei_cloud
+  # --- 第二梯队：国际大厂 ---
+  - aws_lightsail
+  - gcp
+  - azure
+  # --- 第三梯队：小厂 + 聚合站 ---
+  - lowendbox
+  - racknerd
+  - cloudcone
+  - bandwagon
